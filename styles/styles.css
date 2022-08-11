@@ -1,0 +1,62 @@
+
+ body {
+  font-family: dico-code-one,mono;
+  font-weight: 400;
+  font-size: 18px;
+ } 
+
+ main {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 3rem;
+ }
+
+ h2 {
+  font-weight: 400;
+  font-size: 1rem;
+ }
+
+ strong {
+  font-weight: 700;
+ }
+
+ ul {
+  padding: 0;
+ }
+
+ li {
+  padding: 1rem 0;
+  list-style: none;
+ }
+
+ a, a:visited {
+  color: rgb(0, 57, 171);
+  transition: 0.2s all linear;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  padding-bottom: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+ }
+
+ a:hover {
+  color: rgb(0, 39, 111);
+  border-bottom: 3px solid rgb(0, 99, 247);
+ }
+
+ i {
+  padding-right: 1rem;
+  font-size: 1.5rem;
+ }
+
+ @media screen and (max-width: 800px) {
+
+  body {
+    font-size: 22px;
+  }
+
+  main {
+    align-items: center;
+  }
+ }
+
