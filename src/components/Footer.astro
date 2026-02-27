@@ -1,0 +1,59 @@
+---
+import Container from './Container.astro';
+---
+
+<footer>
+  <Container>
+    <nav>
+      <a
+        href="https://linkedin.com/in/katbella"
+        target="_blank"
+        rel="noopener noreferrer">linkedin</a
+      >
+      <span aria-hidden="true">·</span>
+      <a
+        href="https://github.com/katbella"
+        target="_blank"
+        rel="noopener noreferrer">github</a
+      >
+      <span aria-hidden="true">·</span>
+      <a href="mailto:kat@katbella.com">email</a>
+      <span aria-hidden="true">·</span>
+      <a href="/about">about</a>
+    </nav>
+    <p>
+      <span class="copyright">&copy;</span>
+      {new Date().getFullYear()} all pixels judgmentally reserved.
+    </p>
+  </Container>
+</footer>
+
+<style>
+  footer {
+    padding: 2rem 0;
+  }
+
+  nav {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    margin-block-end: 0.5rem;
+  }
+
+  span {
+    color: var(--text-muted);
+  }
+
+  p {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  .copyright {
+    font-size: 1rem;
+    position: relative;
+    inset-block-start: 4px;
+  }
+</style>

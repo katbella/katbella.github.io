@@ -1,0 +1,57 @@
+---
+
+---
+
+<header>
+  <a href="/" class="wordmark">katbella</a>
+  <button id="theme-toggle" aria-label="Toggle light/dark mode">◑</button>
+</header>
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 2rem;
+    border-block-end: 1px solid var(--border);
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 10;
+    background-color: var(--bg);
+  }
+
+  .wordmark {
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+
+  .wordmark:hover {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 1rem;
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  button:hover {
+    color: var(--text);
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('theme-toggle');
+  btn?.addEventListener('click', () => {
+    const html = document.documentElement;
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+</script>

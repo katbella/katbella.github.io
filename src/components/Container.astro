@@ -1,0 +1,23 @@
+---
+
+---
+
+<div class="container">
+  <slot />
+</div>
+
+<style>
+  .container {
+    width: 100%;
+    max-width: 640px;
+    padding: 4rem 2rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      margin-inline-start: 8vw;
+      margin-inline-end: 0;
+    }
+  }
+</style>
