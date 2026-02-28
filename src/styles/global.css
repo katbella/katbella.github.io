@@ -64,3 +64,9 @@ a:hover {
   image-rendering: crisp-edges;
   pointer-events: none;
 }
+
+@media (max-width: 768px) {
+  #pixel-canvas {
+    bottom: 97px;
+  }
+}
