@@ -117,6 +117,44 @@ async function init() {
     dragging = false;
   });
 
+  document.addEventListener(
+    'touchstart',
+    (e) => {
+      const touch = e.touches[0];
+      const { x, y, inCanvas } = canvasCoords(touch);
+      if (!inCanvas) return;
+
+      if (ball.containsPoint(x, y)) {
+        dragging = true;
+        dragStartX = x;
+        e.preventDefault();
+      } else if (pixel.containsPoint(x, y, pixelY)) {
+        pixel.bark();
+        audio.playBark();
+        if (audio.muted && audioBtn) {
+          audioBtn.classList.add('hint');
+          audioBtn.addEventListener(
+            'animationend',
+            () => audioBtn.classList.remove('hint'),
+            { once: true },
+          );
+        }
+      }
+    },
+    { passive: false },
+  );
+
+  document.addEventListener('touchend', (e) => {
+    if (!dragging) return;
+    const touch = e.changedTouches[0];
+    const { x } = canvasCoords(touch);
+    if (ball.throwable) {
+      ball.launch(x, (x - dragStartX) * 0.08, -0.4);
+      pixel.onBallThrown(x);
+    }
+    dragging = false;
+  });
+
   // --- Render loop ---
 
   manager.start((ctx, dt) => {
