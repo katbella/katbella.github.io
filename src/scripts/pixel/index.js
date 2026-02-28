@@ -37,13 +37,10 @@ async function init() {
   });
 
   // Canvas
-  const isMobile = window.innerWidth <= 768;
-
   const manager = createCanvasManager({
     canvasId: 'pixel-canvas',
-    height: isMobile ? 120 : 200,
+    height: 200,
   });
-
   const pixelY = manager.height - sheets.idle.frameHeight * SCALE;
   const groundY = manager.height - sheets.ball.frameHeight * SCALE - 10;
 
