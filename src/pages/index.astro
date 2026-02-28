@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Rocket, Cog, FileImage, Code2 } from 'lucide-astro';
+---
+
+<Layout>
+  <h1>
+    Hi, I'm <a href="mailto:kat@katbella.com" aria-label="Contact Kat via email"
+      >Kat</a
+    >.
+  </h1>
+  <h2>I do web things. And video game things. And music things.</h2>
+  <h3>You're probably here because of:</h3>
+  <ul>
+    <li>
+      <a
+        href="https://doodleengine.dev"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Cog size={18} aria-hidden="true" />
+        Doodle Engine
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://secondstargame.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Rocket size={18} aria-hidden="true" />
+        Second Star
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://pixel-converter.app"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <FileImage size={18} aria-hidden="true" />
+        Pixel Converter
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://gibberlings3.net"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Code2 size={18} aria-hidden="true" />
+        Infinity Engine Modding
+      </a>
+    </li>
+  </ul>
+</Layout>
+
+<style>
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  h1 a {
+    color: var(--accent);
+  }
+
+  h1 a:hover {
+    text-decoration: none;
+    opacity: 0.8;
+  }
+
+  h2 {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+
+  h3 {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+  }
+
+  li a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.1rem;
+    padding: 0.75rem 0;
+    padding-bottom: calc(0.75rem - 3px);
+    border-bottom: 3px solid transparent;
+    transition:
+      border-color 0.15s ease,
+      color 0.15s ease;
+    color: var(--text);
+  }
+
+  li a:hover {
+    border-bottom-color: var(--accent);
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  li :global(svg) {
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+</style>

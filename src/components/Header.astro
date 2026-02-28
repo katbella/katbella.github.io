@@ -1,0 +1,113 @@
+---
+import { Sun, Moon, VolumeX, Volume2 } from 'lucide-astro';
+---
+
+<header>
+  <a href="/" class="wordmark">katbella</a>
+  <div>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode">
+      <Sun class="icon sun" size={18} />
+      <Moon class="icon moon" size={18} />
+    </button>
+    <button
+      id="audio-toggle"
+      aria-label="Toggle audio for Pixel's bark"
+      aria-pressed="false"
+    >
+      <VolumeX class="icon vol-off" size={18} />
+      <Volume2 class="icon vol-on" size={18} />
+    </button>
+  </div>
+</header>
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 2rem;
+    border-block-end: 1px solid var(--border);
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 10;
+    background-color: var(--bg);
+  }
+
+  .wordmark {
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+  }
+
+  .wordmark:hover {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 1rem;
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  button:hover {
+    color: var(--text);
+  }
+
+  /* Theme toggle: show sun in light mode, moon in dark */
+  :global([data-theme='dark']) .sun {
+    display: none;
+  }
+  :global([data-theme='dark']) .moon {
+    display: inline;
+  }
+  :global([data-theme='light']) .sun {
+    display: inline;
+  }
+  :global([data-theme='light']) .moon {
+    display: none;
+  }
+
+  /* Audio toggle */
+  #audio-toggle[aria-pressed='false'] .vol-on {
+    display: none;
+  }
+  #audio-toggle[aria-pressed='false'] .vol-off {
+    display: inline;
+  }
+  #audio-toggle[aria-pressed='true'] .vol-on {
+    display: inline;
+  }
+  #audio-toggle[aria-pressed='true'] .vol-off {
+    display: none;
+  }
+
+  #audio-toggle.hint {
+    animation: audio-hint 1.5s ease-out;
+  }
+
+  @keyframes audio-hint {
+    0% {
+      color: var(--accent);
+      filter: drop-shadow(0 0 12px var(--accent));
+    }
+    100% {
+      color: var(--text-muted);
+      filter: none;
+    }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('theme-toggle');
+  btn?.addEventListener('click', () => {
+    const html = document.documentElement;
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+</script>
