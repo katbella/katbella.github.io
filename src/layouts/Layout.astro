@@ -25,6 +25,7 @@ import Container from '../components/Container.astro';
     <div id="pixel-layer" aria-hidden="true">
       <canvas id="pixel-canvas"></canvas>
     </div>
+    <div class="crt-overlay" aria-hidden="true"></div>
     <script src="../scripts/pixel/index.js"></script>
     <Header />
     <main>
@@ -37,6 +38,12 @@ import Container from '../components/Container.astro';
       console.log(
         "Curious about Pixel's minigame? https://github.com/katbella/katbella.github.io",
       );
+      console.log(
+        'Also, there may be a %ccheat mode%c.',
+        'color: #00c853; font-weight: 700;',
+        '',
+      );
     </script>
+    <script src="../scripts/crt-mode.js"></script>
   </body>
 </html>

@@ -39,6 +39,12 @@ body {
   flex-direction: column;
 }
 
+body.crt-mode {
+  text-shadow:
+    0 0 2px rgb(160 255 200 / 0.45),
+    0 0 6px rgb(160 255 200 / 0.28);
+}
+
 a {
   color: var(--accent);
   text-decoration: none;
@@ -63,6 +69,74 @@ a:hover {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   pointer-events: none;
+}
+
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 90;
+  opacity: 0;
+}
+
+body.crt-mode .crt-overlay {
+  opacity: 1;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0.055) 0,
+    rgb(255 255 255 / 0.055) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: crt-flicker 2.8s infinite;
+}
+
+[data-theme='light'] body.crt-mode {
+  text-shadow:
+    0 0 2px rgb(0 120 70 / 0.4),
+    0 0 6px rgb(0 120 70 / 0.3);
+}
+
+[data-theme='light'] body.crt-mode .crt-overlay {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0.05) 0,
+    rgb(0 0 0 / 0.05) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+@keyframes crt-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  24% {
+    opacity: 0.992;
+  }
+  50% {
+    opacity: 0.965;
+  }
+  64% {
+    opacity: 0.986;
+  }
+  82% {
+    opacity: 0.993;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  body.crt-mode .crt-overlay {
+    animation: none;
+  }
 }
 
 @media (max-width: 768px) {
