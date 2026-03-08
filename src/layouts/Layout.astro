@@ -16,6 +16,9 @@ import Container from '../components/Container.astro';
         'Software engineer with a lot of hobbies.'}
     />
     <title>{Astro.props.title ?? 'Kat Bella'}</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <script is:inline>
       const saved = localStorage.getItem('theme');
       if (saved) document.documentElement.setAttribute('data-theme', saved);
