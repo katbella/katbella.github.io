@@ -9,7 +9,7 @@ import { createAudioManager } from './AudioManager.js';
 /**
  * Main initialization script for Pixel's interactive animation.
  * So much code to make a dog walk around and play with a ball!
- * I thought about using something like Phaser, but it felt like overkill for a personal hompage.
+ * I thought about using something like Phaser, but it felt like overkill for a personal homepage.
  */
 
 async function init() {
