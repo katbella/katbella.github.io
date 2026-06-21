@@ -109,6 +109,6 @@ export const BALL_PHYSICS = {
 
 /** Personality knobs */
 export const BEHAVIOR = {
-  STUBBORN_CHANCE: 0.2, // chance she keeps the ball after fetching
-  JUDGE_CHANCE: 0.15, // chance she does the judgmental sniff-stare
+  STUBBORN_CHANCE: 0, // chance she keeps the ball after fetching
+  JUDGE_CHANCE: 0.35, // chance she does the judgmental sniff-stare
 };

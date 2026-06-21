@@ -1,0 +1,59 @@
+---
+import { formatNoteDate, getNoteUrl, type NoteEntry } from '../lib/notes';
+
+interface Props {
+  notes: NoteEntry[];
+}
+
+const { notes } = Astro.props;
+---
+
+{
+  notes.length > 0 ? (
+    <ul class="notes-list">
+      {notes.map((note) => (
+        <li>
+          <article>
+            <h2>
+              <a href={getNoteUrl(note)}>{note.data.title}</a>
+            </h2>
+            <time datetime={note.data.publishedAt.toISOString().slice(0, 10)}>
+              {formatNoteDate(note.data.publishedAt)}
+            </time>
+          </article>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p class="empty">No notes published yet.</p>
+  )
+}
+
+<style>
+  .notes-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  h2 a {
+    color: var(--text);
+  }
+
+  h2 a:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  time,
+  .empty {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+</style>

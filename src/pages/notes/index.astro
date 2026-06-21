@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NotesList from '../../components/NotesList.astro';
+import { getPublishedNotes } from '../../lib/notes';
+
+const notes = await getPublishedNotes();
+---
+
+<Layout
+  title="Kat Bella - Notes"
+  description="Notes by Kat Bella."
+  includePixel={false}
+>
+  <section>
+    <h1>Notes</h1>
+    <NotesList notes={notes} />
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+</style>

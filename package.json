@@ -9,8 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.18",
     "@fontsource/space-mono": "^5.2.9",
-    "astro": "^5.17.1",
+    "astro": "^6.4.8",
     "lucide-astro": "^0.556.0"
   },
   "devDependencies": {

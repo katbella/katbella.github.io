@@ -3,7 +3,7 @@
   "singleQuote": true,
   "semi": true,
   "tabWidth": 2,
-  "overridesByGlob": [
+  "overrides": [
     {
       "files": "*.astro",
       "options": {
