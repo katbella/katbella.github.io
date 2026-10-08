@@ -4,7 +4,7 @@ title: 'A Small Site Refresh'
 publishedAt: 2026-10-07
 topics:
   - projects
-draft: true
+draft: false
 ---
 
 It's been a little bit since I last updated this site, and I decided it was time for a few small changes. If you haven't visited in a while, a lot of this might look new.
