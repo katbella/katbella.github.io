@@ -26,7 +26,8 @@ const { Content } = await render(note);
 ---
 
 <Layout
-  title={`Kat Bella - ${note.data.title}`}
+  title={note.data.title}
+  ogType="article"
   description={getNoteMetaDescription(note)}
   includePixel={false}
   width="reading"

@@ -6,11 +6,7 @@ import { getPublishedNotes } from '../../lib/notes';
 const notes = await getPublishedNotes();
 ---
 
-<Layout
-  title="Kat Bella - Notes"
-  description="Notes by Kat Bella."
-  includePixel={false}
->
+<Layout title="Notes" description="Notes by Kat Bella." includePixel={false}>
   <section>
     <h1>Notes</h1>
     <NotesList notes={notes} />
