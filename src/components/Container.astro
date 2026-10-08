@@ -1,8 +1,12 @@
 ---
+interface Props {
+  width?: 'default' | 'reading' | 'wide';
+}
 
+const { width = 'default' } = Astro.props;
 ---
 
-<div class="container">
+<div class:list={['container', width]}>
   <slot />
 </div>
 
@@ -14,10 +18,23 @@
     margin: 0 auto;
   }
 
+  .container.reading {
+    max-width: 720px;
+  }
+
+  .container.wide {
+    max-width: 900px;
+  }
+
   @media (min-width: 768px) {
     .container {
       margin-inline-start: 8vw;
       margin-inline-end: 0;
+    }
+
+    .container.reading,
+    .container.wide {
+      width: calc(100% - 8vw);
     }
   }
 </style>

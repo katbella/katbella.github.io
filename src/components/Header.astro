@@ -9,7 +9,9 @@ const { showPixelControls = true } = Astro.props;
 ---
 
 <header>
-  <a href="/" class="wordmark">katbella</a>
+  <a href="/" class="wordmark">
+    katbella
+  </a>
   <div>
     <button
       id="crt-toggle"
@@ -24,18 +26,16 @@ const { showPixelControls = true } = Astro.props;
       <Sun class="icon sun" size={18} />
       <Moon class="icon moon" size={18} />
     </button>
-    {
-      showPixelControls && (
-        <button
-          id="audio-toggle"
-          aria-label="Toggle audio for Pixel's bark"
-          aria-pressed="false"
-        >
-          <VolumeX class="icon vol-off" size={18} />
-          <Volume2 class="icon vol-on" size={18} />
-        </button>
-      )
-    }
+    {showPixelControls && (
+      <button
+        id="audio-toggle"
+        aria-label="Toggle audio for Pixel's bark"
+        aria-pressed="false"
+      >
+        <VolumeX class="icon vol-off" size={18} />
+        <Volume2 class="icon vol-on" size={18} />
+      </button>
+    )}
   </div>
 </header>
 

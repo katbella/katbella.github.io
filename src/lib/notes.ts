@@ -28,7 +28,9 @@ export async function getAllNotes(): Promise<NoteEntry[]> {
 }
 
 export async function getPublishedNotes(): Promise<NoteEntry[]> {
-  return (await getAllNotes()).filter((note) => !note.data.draft);
+  return (await getAllNotes()).filter(
+    (note) => import.meta.env.DEV || !note.data.draft,
+  );
 }
 
 export function getNotesForTopic(
@@ -41,6 +43,16 @@ export function getNotesForTopic(
 
 export function getNoteRssDescription(note: NoteEntry): string {
   return markdownToPlainText(note.body ?? '');
+}
+
+export function getNoteMetaDescription(
+  note: NoteEntry,
+  maxLength = 160,
+): string {
+  const text = getNoteRssDescription(note);
+  if (text.length <= maxLength) return text;
+  const cut = text.slice(0, maxLength - 1);
+  return `${cut.slice(0, cut.lastIndexOf(' '))}…`;
 }
 
 function assertUniqueNoteSlugs(notes: NoteEntry[]): void {

@@ -85,7 +85,13 @@ async function init() {
     };
   }
 
+  // Links and buttons always win over the game.
+  function isInteractive(target) {
+    return target instanceof Element && !!target.closest('a, button');
+  }
+
   document.addEventListener('mousedown', (e) => {
+    if (isInteractive(e.target)) return;
     const { x, y, inCanvas } = canvasCoords(e);
     if (!inCanvas) return;
 
@@ -120,6 +126,7 @@ async function init() {
   document.addEventListener(
     'touchstart',
     (e) => {
+      if (isInteractive(e.target)) return;
       const touch = e.touches[0];
       const { x, y, inCanvas } = canvasCoords(touch);
       if (!inCanvas) return;

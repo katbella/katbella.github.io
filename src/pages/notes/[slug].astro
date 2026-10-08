@@ -3,7 +3,7 @@ import { render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import {
   formatNoteDate,
-  getNoteRssDescription,
+  getNoteMetaDescription,
   getPublishedNotes,
   type NoteEntry,
 } from '../../lib/notes';
@@ -27,8 +27,9 @@ const { Content } = await render(note);
 
 <Layout
   title={`Kat Bella - ${note.data.title}`}
-  description={getNoteRssDescription(note)}
+  description={getNoteMetaDescription(note)}
   includePixel={false}
+  width="reading"
 >
   <nav aria-label="Notes">
     <a href="/notes">Back to notes</a>
@@ -76,6 +77,69 @@ const { Content } = await render(note);
     font-size: 0.9rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
+  }
+
+  .note-body :global(h3) {
+    font-size: 1.05rem;
+    margin-block: 1.5rem 0.75rem;
+  }
+
+  .note-body :global(img) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-block: 0 1.5rem;
+  }
+
+  .note-body :global(ul),
+  .note-body :global(ol) {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    padding-inline-start: 1.5rem;
+  }
+
+  .note-body :global(li + li) {
+    margin-top: 0.35rem;
+  }
+
+  .note-body :global(blockquote) {
+    color: var(--text-muted);
+    border-inline-start: 2px solid var(--border);
+    padding-inline-start: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .note-body :global(blockquote p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .note-body :global(code) {
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: var(--text);
+    background-color: var(--border);
+    padding: 0.1em 0.4em;
+  }
+
+  .note-body :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  .note-body :global(pre) {
+    border: 1px solid var(--border);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    line-height: 1.5;
+  }
+
+  .note-body :global(hr) {
+    border: none;
+    border-block-start: 1px solid var(--border);
+    margin-block: 2rem;
   }
 
   .note-body :global(a) {

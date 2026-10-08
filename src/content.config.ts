@@ -23,6 +23,7 @@ const notes = defineCollection({
     title: z.string().min(1),
     publishedAt: z.coerce.date(),
     topics: z.array(z.enum(topicSlugValues)).optional().default([]),
+    // Drafts show in `npm run dev` but are excluded from production builds.
     draft: z.boolean().default(false),
   }),
 });
