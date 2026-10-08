@@ -19,12 +19,12 @@ Anyway, I wanted the site to feel like my personal space on the web again, somet
 
 ## What Changed?
 
-I won't list every single detail, but you likely noticed I went with a very minimal design approach. I wanted to focus on content and readability and I made sure to include a light/dark mode toggle this time. I've always really liked the particular shade of blue and that's been mostly consistent over the years. I think it's slightly darker now for accessibility reasons, but it's close enough to feel familiar.
+I won't list every single detail, but you likely noticed I went with a very minimal design approach. I wanted to focus on content and readability and I made sure to include a light/dark mode toggle this time. I've always really liked the particular shade of blue used in the links and that's been mostly consistent over the years. I think it's slightly darker now for accessibility reasons, but it's close enough to feel familiar.
 
 From time to time, I might share updates or general thoughts about projects and other things here.
 
 I also decided there needed to be some fun on the site, so I added an extremely exciting red ball to the homepage. Feel free to throw it - my dog, Pixel, will make an appearance as she loves to play. There's an audio toggle as well - turn it on, click on Pixel, and enjoy the dulcet sounds of her barking her demands at you.
 
-## In Conclusion.....
+## In Conclusion.........
 
 I love adding unnecessary ellipses to headings. It makes everything so ominous and dramatic. I will say this: there is a small easter egg hidden on the new site as well. I won't spoil it here, but I hope you enjoy finding it.
