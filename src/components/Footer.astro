@@ -5,33 +5,39 @@ import Container from './Container.astro';
 <footer>
   <Container>
     <nav>
-      <a href="/about">about</a>
-      <span aria-hidden="true">·</span>
-      <a href="/projects">projects</a>
-      <span aria-hidden="true">·</span>
-      <a href="/notes">notes</a>
-      <span aria-hidden="true">·</span>
-      <a
-        href="https://github.com/katbella"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        github
-      </a>
-      <span aria-hidden="true">·</span>
-      <a
-        href="https://linkedin.com/in/katbella"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        linkedin
-      </a>
-      <span aria-hidden="true">·</span>
-      <a href="mailto:kat@katbella.com">email</a>
+      <div class="group">
+        <a href="/about">about</a>
+        <span aria-hidden="true">·</span>
+        <a href="/projects">projects</a>
+        <span aria-hidden="true">·</span>
+        <a href="/notes">notes</a>
+      </div>
+      <span class="group-sep" aria-hidden="true">
+        ·
+      </span>
+      <div class="group">
+        <a
+          href="https://github.com/katbella"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          github
+        </a>
+        <span aria-hidden="true">·</span>
+        <a
+          href="https://linkedin.com/in/katbella"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          linkedin
+        </a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:kat@katbella.com">email</a>
+      </div>
     </nav>
     <p>
-      <span class="copyright">&copy;</span>
-      {new Date().getFullYear()} all pixels reserved.
+      <span class="copyright">&copy;</span> {new Date().getFullYear()} all
+      pixels reserved.
     </p>
   </Container>
 </footer>
@@ -50,8 +56,26 @@ import Container from './Container.astro';
     margin-block-end: 0.5rem;
   }
 
+  .group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
   span {
     color: var(--text-muted);
+  }
+
+  /* On small screens the two groups stack, so the dot between them goes. */
+  @media (max-width: 600px) {
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .group-sep {
+      display: none;
+    }
   }
 
   p {

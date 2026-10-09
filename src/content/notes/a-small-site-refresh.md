@@ -27,4 +27,4 @@ I also decided there needed to be some fun on the site, so I added an extremely 
 
 ## In Conclusion.........
 
-I love adding unnecessary ellipses to headings. It makes everything so ominous and dramatic. I will say this: there is a small easter egg hidden on the new site as well. I won't spoil it here, but I hope you enjoy finding it.
+I love adding unnecessary ellipses to headings. It makes everything so ominous and dramatic. Also, there is a small easter egg hidden on the new site (desktop only, since it needs a keyboard!). I won't spoil it here, but I hope you enjoy finding it.
